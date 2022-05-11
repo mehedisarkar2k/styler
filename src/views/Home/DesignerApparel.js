@@ -3,7 +3,7 @@ import React from 'react';
 const DesignerApparel = () => {
   return (
     <div>
-      <h4 className="mb-3 text-center text-gray-200">Designer apparel</h4>
+      <h4 className="mb-3 text-center">Designer apparel</h4>
 
       <>
         <div className="mb-6 w-1/2 mx-auto">

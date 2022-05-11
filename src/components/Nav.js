@@ -6,9 +6,7 @@ const Nav = () => {
     <nav className="fixed top-5 w-full border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 mb-10">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex items-center">
-          <span className="text-white self-center text-2xl font-semibold whitespace-nowrap">
-            H&M
-          </span>
+          <span className="self-center text-2xl font-semibold whitespace-nowrap">H&M</span>
         </Link>
         <button
           data-collapse-toggle="mobile-menu"
@@ -49,11 +47,11 @@ const Nav = () => {
             <li>
               <Link
                 to="/"
-                className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
+                className="block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
                 aria-current="page"
               >
                 <span className="flex items-center justify-center">
-                  <MdPerson className="text-2xl" /> <p className="ml-1 text-white">Login</p>
+                  <MdPerson className="text-2xl" /> <p className="ml-1">Login</p>
                 </span>
               </Link>
             </li>
@@ -61,12 +59,11 @@ const Nav = () => {
             <li>
               <Link
                 to="/"
-                className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
+                className="block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
                 aria-current="page"
               >
                 <span className="flex items-center justify-center">
-                  <MdOutlineFavorite className="text-2xl" />{' '}
-                  <p className="ml-1 text-white">Favourite</p>
+                  <MdOutlineFavorite className="text-2xl" /> <p className="ml-1">Favourite</p>
                 </span>
               </Link>
             </li>
@@ -74,12 +71,11 @@ const Nav = () => {
             <li>
               <Link
                 to="/"
-                className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
+                className="block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
                 aria-current="page"
               >
                 <span className="flex items-center justify-center">
-                  <MdOutlineShoppingBag className="text-2xl" />{' '}
-                  <p className="ml-1 text-white">Cart</p>
+                  <MdOutlineShoppingBag className="text-2xl" /> <p className="ml-1">Cart</p>
                 </span>
               </Link>
             </li>
