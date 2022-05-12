@@ -17,13 +17,13 @@ const LandingPage = () => {
         <div className={`flex items-center mb-4`}>
           <input
             onChange={() => setIsDesigner(!isDesigner)}
-            id="default-checkbox"
+            id="designer"
             type="checkbox"
             checked={isDesigner}
-            value=""
+            value={isDesigner}
             className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2 "
           />
-          <label htmlFor="default-checkbox" className="ml-2 text-sm font-medium">
+          <label htmlFor="designer" className="ml-2 text-sm font-medium">
             <h6 className="">Want to generate apparel as designer?</h6>
           </label>
         </div>
