@@ -82,16 +82,6 @@ const ImageContainer = ({ image }) => {
           className={`absolute -top-[3600px] left-1/2 transform -translate-x-1/2`}
         />
       </div>
-      <div
-        key={`${Date.now() + Math.random()}`}
-        className="relative h-[450px] overflow-hidden shadow-md"
-      >
-        <img
-          src={image}
-          alt="apparel"
-          className={`absolute -top-[4050px] left-1/2 transform -translate-x-1/2`}
-        />
-      </div>
     </div>
   );
 };

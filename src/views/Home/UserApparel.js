@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { BiLoaderCircle } from 'react-icons/bi';
 import Input from '../../components/Input';
 import config from '../../config';
 import Img from '../../img/bg-2.jpg';
+import ImgMale from '../../img/imgMale.jpg';
 import ImageContainer from './ImageContainer';
 
 const LowerApparel = () => {
@@ -10,9 +12,11 @@ const LowerApparel = () => {
   const [gender, setGender] = useState('male');
   const [type, setType] = useState('shirt');
   const [color, setColor] = useState('blue');
-  const [characteristics, setCharacteristics] = useState('blue');
+  const [characteristics, setCharacteristics] = useState('patterned');
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const bgImage = gender === 'male' ? ImgMale : Img;
 
   const generateApparel = async () => {
     const reqData = {
@@ -51,11 +55,11 @@ const LowerApparel = () => {
 
   return (
     <>
-      <section className="mx-auto">
-        <section className="relative px-10 md:p-0 transform duration-500 shadow hover:shadow-2xl cursor-pointer hover:-translate-y-1 ">
-          <img className="xl:max-w-6xl" src={Img} alt="" />
+      <section className="mx-auto max-h-[80vh] overflow-hidden">
+        <section className="h-full relative px-10 md:p-0 transform duration-500 shadow hover:shadow-2xl cursor-pointer hover:-translate-y-1 ">
+          <img className="h-full xl:max-w-6xl" src={bgImage} alt="" />
 
-          <div className=" bg-white p-2 pt-8 md:p-12 pb-12 lg:max-w-lg w-full lg:absolute top-1/2 right-5 transform -translate-y-1/2 shadow">
+          <div className=" bg-white p-2 pt-8 md:p-12 pb-12 lg:max-w-lg w-full lg:absolute top-64 right-5 transform -translate-y-1/2 shadow">
             <div className="flex items-center mb-4">
               <h5 className="mr-4">Apparel for:</h5>
 
@@ -121,19 +125,22 @@ const LowerApparel = () => {
                 <Input
                   onChange={(e) => setType(e.target.value)}
                   label="Apparel Name"
-                  id="name2"
+                  id="name"
                   className="mb-4"
+                  value={type}
                 />
                 <Input
                   onChange={(e) => setColor(e.target.value)}
                   label="Color"
-                  id="color2"
+                  id="color"
                   className="mb-4"
+                  value={color}
                 />
                 <Input
                   onChange={(e) => setCharacteristics(e.target.value)}
                   label="Characteristics"
-                  id="color2"
+                  id="Characteristics"
+                  value={characteristics}
                   className="mb-1"
                 />
                 <p className="italic text-gray-600 text-sm">
@@ -164,6 +171,7 @@ const LowerApparel = () => {
                   onChange={(e) => setType(e.target.value)}
                   label="Apparel Name"
                   id="name2"
+                  value={type}
                   className="mb-4"
                 />
                 <Input
@@ -171,12 +179,14 @@ const LowerApparel = () => {
                   label="Color"
                   id="color2"
                   className="mb-4"
+                  value={color}
                 />
                 <Input
                   onChange={(e) => setCharacteristics(e.target.value)}
                   label="Characteristics"
-                  id="color2"
+                  id="Characteristics2"
                   className="mb-1"
+                  value={characteristics}
                 />
                 <p className="italic text-gray-600 text-sm">
                   ex: plain, patterned, striped, floral, plaid
@@ -184,12 +194,17 @@ const LowerApparel = () => {
               </>
             )}
 
-            <button
-              onClick={generateApparel}
-              className="mt-2 md:mt-5 p-3 px-5 bg-black text-white font-bold text-sm hover:bg-blue-500"
-            >
-              Generate Apparel
-            </button>
+            <div className="mt-2 md:mt-5 flex">
+              <button
+                disabled={loading}
+                onClick={generateApparel}
+                className="p-3 px-5 bg-black text-white font-bold text-sm hover:bg-blue-500"
+              >
+                Generate Apparel
+              </button>
+
+              {loading && <BiLoaderCircle className="ml-4 text-4xl animate-spin" />}
+            </div>
           </div>
         </section>
       </section>
