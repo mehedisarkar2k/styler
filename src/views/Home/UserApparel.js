@@ -1,17 +1,52 @@
 import { useState } from 'react';
 import Input from '../../components/Input';
+import config from '../../config';
 import Img from '../../img/bg-2.jpg';
+import ImageContainer from './ImageContainer';
 
 const LowerApparel = () => {
   const [isUpper, setIsUpper] = useState(true);
   const [isLower, setIsLower] = useState(false);
   const [gender, setGender] = useState('male');
-  const [type, setType] = useState('tops');
+  const [type, setType] = useState('shirt');
   const [color, setColor] = useState('blue');
   const [characteristics, setCharacteristics] = useState('blue');
+  const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const generateApparel = () => {
-    console.log({ gender, type, color, characteristics });
+  const generateApparel = async () => {
+    const reqData = {
+      gender,
+      apparel_type: type,
+      colour: color,
+      characteristics,
+      placing: isUpper ? 'upper' : 'lower',
+    };
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${config.api_url}/generate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reqData),
+      });
+
+      const imageBlob = await response.blob();
+
+      const reader = new FileReader();
+      reader.readAsDataURL(imageBlob);
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        setImage(base64data);
+        setLoading(false);
+      };
+    } catch {
+      setLoading(false);
+    }
   };
 
   return (
@@ -158,6 +193,13 @@ const LowerApparel = () => {
           </div>
         </section>
       </section>
+
+      {!loading && image && <ImageContainer image={image} />}
+      {loading && (
+        <div className="text-center mt-5">
+          <h4>generating...</h4>
+        </div>
+      )}
     </>
   );
 };
