@@ -6,7 +6,7 @@ const Nav = () => {
     <nav className="bg-white fixed top-0 w-full border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 mb-10 z-50 shadow">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex items-center">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">H&M</span>
+          <span className="self-center text-2xl font-semibold whitespace-nowrap">Styler</span>
         </Link>
         <button
           data-collapse-toggle="mobile-menu"
