@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav className="bg-white fixed top-0 w-full border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 mb-10 z-50">
+    <nav className="bg-white fixed top-0 w-full border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 mb-10 z-50 shadow">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap">H&M</span>

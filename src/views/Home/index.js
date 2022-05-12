@@ -12,7 +12,7 @@ const LandingPage = () => {
       <Nav />
 
       <MainCard>
-        <h1 className="text-center text-white my-5">Generate your apparel</h1>
+        <h1 className="text-center mt-14 mb-5">Generate your apparel</h1>
 
         <div className={`flex items-center mb-4`}>
           <input
